@@ -1,4 +1,5 @@
-// Focused website: the phone menu, the footer year and the shul request form.
+// Focused website: the phone menu, the header shade, the scroll animations, the demo video,
+// the question answers, the footer year and the shul request form.
 // No libraries and no tracking.
 
 (function () {
@@ -28,30 +29,145 @@
     });
   }
 
-  // ---------- Video ----------
-  // The page shows its own preview, so nothing is loaded from YouTube until someone
-  // presses play. Then the preview is swapped for the player. Without JavaScript the
-  // preview is a plain link to the video on YouTube.
+  // Visitors who asked their device for less motion get none of the animations below.
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  document.querySelectorAll('[data-video-id]').forEach(function (link) {
-    link.addEventListener('click', function (event) {
-      event.preventDefault();
+  // ---------- Header shade ----------
+  // The header stays at the top. Once the page scrolls, it gets a soft blur and shadow
+  // so it stands apart from what's underneath.
 
-      var player = document.createElement('iframe');
-      player.src = 'https://www.youtube-nocookie.com/embed/' + link.getAttribute('data-video-id') +
-        '?autoplay=1&rel=0&playsinline=1';
-      player.title = 'How Focused works';
-      player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-      player.allowFullscreen = true;
+  var header = document.querySelector('.site-header');
 
-      var box = document.createElement('div');
-      box.className = 'video';
-      box.appendChild(player);
+  if (header) {
+    var shadeHeader = function () {
+      header.classList.toggle('is-scrolled', window.scrollY > 8);
+    };
 
-      link.replaceWith(box);
-      player.focus();
+    shadeHeader();
+    window.addEventListener('scroll', shadeHeader, { passive: true });
+  }
+
+  // ---------- Scroll animations ----------
+  // Sections and cards fade up the first time they scroll into view, cards in a row one
+  // after another. The bars under section labels draw in, and the shul setup steps
+  // light up in order. Anything already on screen when the page opens is left alone.
+
+  var revealTargets = '.section-head, .video, .door-demo, .feature, .split__main, ' +
+    '.split__side:not(.reassurances), .reassurances li, .join, .cta-panel, .faq details, ' +
+    '.step, .price, .form';
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    document.querySelectorAll('.eyebrow').forEach(function (label) {
+      label.classList.add('bar-in');
     });
-  });
+  } else {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        var el = entry.target;
+        observer.unobserve(el);
+
+        if (el.classList.contains('eyebrow')) {
+          el.classList.add('bar-in');
+        } else if (el.classList.contains('steps')) {
+          el.classList.add('is-lit');
+        } else {
+          reveal(el);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px' });
+
+    document.querySelectorAll(revealTargets).forEach(function (el) {
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        return;
+      }
+
+      // Cards side by side arrive a beat apart
+      var place = Array.prototype.indexOf.call(el.parentElement.children, el);
+      el.style.setProperty('--reveal-delay', Math.min(place, 4) * 90 + 'ms');
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+
+    document.querySelectorAll('.eyebrow, .steps').forEach(function (el) {
+      observer.observe(el);
+    });
+  }
+
+  function reveal(el) {
+    el.classList.add('is-visible');
+
+    // Once it has arrived, take the classes off so the card's own hover lift works again
+    setTimeout(function () {
+      el.classList.remove('reveal', 'is-visible');
+      el.style.removeProperty('--reveal-delay');
+    }, 1200);
+  }
+
+  // ---------- Demo video ----------
+  // It plays on a loop by itself. With less motion asked for, it waits paused instead,
+  // with play controls so the visitor can start it when they want.
+
+  if (reduceMotion) {
+    document.querySelectorAll('.video video').forEach(function (video) {
+      video.removeAttribute('autoplay');
+      video.pause();
+      video.controls = true;
+    });
+  }
+
+  // ---------- Question answers ----------
+  // Answers slide open and closed instead of popping.
+
+  if (!reduceMotion) {
+    document.querySelectorAll('.faq details').forEach(function (details) {
+      var summary = details.querySelector('summary');
+      var answer = details.querySelector('summary + *');
+      var moving = false;
+
+      if (!summary || !answer || !answer.animate) {
+        return;
+      }
+
+      summary.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        if (moving) {
+          return;
+        }
+
+        moving = true;
+
+        if (details.open) {
+          var closing = answer.animate([
+            { height: answer.offsetHeight + 'px', marginTop: getComputedStyle(answer).marginTop, opacity: 1 },
+            { height: '0px', marginTop: '0px', opacity: 0 }
+          ], { duration: 220, easing: 'ease-in', fill: 'forwards' });
+
+          details.classList.add('is-closing');
+
+          closing.onfinish = function () {
+            details.open = false;
+            details.classList.remove('is-closing');
+            closing.cancel();
+            moving = false;
+          };
+        } else {
+          details.open = true;
+
+          answer.animate([
+            { height: '0px', marginTop: '0px', opacity: 0 },
+            { height: answer.offsetHeight + 'px', marginTop: getComputedStyle(answer).marginTop, opacity: 1 }
+          ], { duration: 260, easing: 'ease-out' }).onfinish = function () {
+            moving = false;
+          };
+        }
+      });
+    });
+  }
 
   // ---------- Footer year ----------
 
@@ -60,11 +176,9 @@
   });
 
   // ---------- Shul request form ----------
-  // GitHub Pages cannot receive a form. Two ways to send it:
-  //  1. A form service: put its address in the form's data-endpoint
-  //     (for example https://formspree.io/f/abcdwxyz). The request is posted there.
-  //  2. No service set up: the visitor's email app opens with the request filled in,
-  //     addressed to the form's data-email.
+  // GitHub Pages cannot receive a form, so the request goes to FormSubmit (the form's
+  // data-endpoint), which emails it to the form's data-email. If data-endpoint is ever
+  // left empty, the visitor's email app opens with the request filled in instead.
 
   var form = document.querySelector('#shul-request');
 
@@ -89,23 +203,54 @@
     });
 
     function sendToService(endpoint, data) {
+      var button = form.querySelector('[type="submit"]');
+      var to = form.getAttribute('data-email');
+      var contact = data.get('contact') || '';
+
+      // Readable names, because they become the rows of the email we receive.
+      // The names starting with _ are settings for FormSubmit.
+      var request = new FormData();
+      request.append('Shul', data.get('shul'));
+      request.append('City', data.get('city'));
+      request.append('Name', data.get('name'));
+      request.append('Email or phone', contact);
+      request.append('Entrances', data.get('entrances'));
+      request.append('Notes', data.get('notes'));
+      request.append('_subject', 'Focused doors for ' + (data.get('shul') || 'a shul'));
+      request.append('_template', 'table');
+
+      // Lets us just press Reply when they left an email address
+      if (contact.indexOf('@') > 0) {
+        request.append('_replyto', contact);
+      }
+
+      button.disabled = true;
       setStatus('Sending…', '');
 
       fetch(endpoint, {
         method: 'POST',
-        body: data,
+        body: request,
         headers: { Accept: 'application/json' }
       })
         .then(function (response) {
-          if (response.ok) {
-            form.reset();
-            setStatus('Thank you. We got your request and will be in touch soon.', 'ok');
-          } else {
-            setStatus('That didn\'t go through. Please try again, or email ' + form.getAttribute('data-email') + '.', 'error');
-          }
+          return response.json().catch(function () { return {}; }).then(function (result) {
+            // FormSubmit can answer "OK" without sending, with success "false" and a message
+            if (response.ok && String(result.success) !== 'false') {
+              form.reset();
+              setStatus('Thank you. We got your request and will be in touch soon.', 'ok');
+            } else if (/activat/i.test(result.message || '')) {
+              // Only before the very first request is confirmed by the inbox owner
+              setStatus('Almost ready: FormSubmit sent an activation email to ' + to + '. Click Activate Form in it, then send again.', 'error');
+            } else {
+              setStatus('That didn\'t go through. Please try again, or email ' + to + '.', 'error');
+            }
+          });
         })
         .catch(function () {
-          setStatus('That didn\'t go through. Check your connection and try again, or email ' + form.getAttribute('data-email') + '.', 'error');
+          setStatus('That didn\'t go through. Check your connection and try again, or email ' + to + '.', 'error');
+        })
+        .then(function () {
+          button.disabled = false;
         });
     }
 
