@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Shuls with Focused doors</title>
+  <meta name="description" content="The shuls where Focused door devices are installed. At these shuls your phone switches to vibrate right at the door.">
+  <meta name="theme-color" content="#121212">
+  <link rel="canonical" href="https://focusedplace.com/doors.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Focused">
+  <meta property="og:title" content="Shuls with Focused doors">
+  <meta property="og:description" content="At these shuls your phone switches to vibrate right at the door.">
+  <meta property="og:url" content="https://focusedplace.com/doors.html">
+  <meta property="og:image" content="https://focusedplace.com/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/icon-512.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.className += ' js';</script>
+  <script src="js/main.js" defer></script>
+  <script src="js/doors.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <nav class="nav" aria-label="Main">
+        <a class="brand" href="./" aria-label="Focused home">
+          <img src="img/logo-mark.svg" alt="" width="40" height="40">
+          <span class="wordmark">FOCUSED</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="./">Home</a>
+          <a href="shuls.html">For shuls</a>
+          <a href="doors.html" aria-current="page">Doors</a>
+          <a href="./#help">Help</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap doors">
+      <div class="section-head">
+        <span class="eyebrow">Focused doors</span>
+        <h1>Shuls with Focused doors</h1>
+        <p>At these shuls your phone switches ringer mode right at the door.</p>
+      </div>
+
+      <!-- Filled in by js/doors.js from data-src: the same devices.json every copy of the app downloads -->
+      <div class="doors-stats" hidden>
+        <div class="doors-stat"><strong id="doors-shuls">0</strong><span>shuls</span></div>
+        <div class="doors-stat"><strong id="doors-entrances">0</strong><span>entrances</span></div>
+        <div class="doors-stat"><strong id="doors-cities">0</strong><span>cities</span></div>
+      </div>
+
+      <div class="doors-search" hidden>
+        <label class="sr-only" for="doors-q">Search by shul or city</label>
+        <input id="doors-q" type="search" placeholder="Search by shul or city" autocomplete="off">
+      </div>
+
+      <div id="doors-list" data-src="https://joshg1628.github.io/focused-privacy/devices.json" aria-live="polite">
+        <noscript><p class="doors-message">Turn on JavaScript to see the list of shuls.</p></noscript>
+      </div>
+
+      <div class="cta-panel">
+        <div class="cta-panel__text">
+          <h2>Don't see your shul?</h2>
+          <p>Two small devices at the door, set up and installed for you.</p>
+        </div>
+        <a class="btn btn--light" href="shuls.html#ask">Get Focused doors</a>
+      </div>
+
+      <p class="doors-note">Updated automatically from the Focused device list.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span class="wordmark wordmark--small">FOCUSED</span>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy policy</a>
+        <a href="shuls.html">For shuls</a>
+        <span>support@focusedplace.com</span>
+      </div>
+      <span>© <span data-year>2026</span> Focused · Patent pending, U.S. Application No. 64/179,098</span>
+    </div>
+  </footer>
+</body>
+</html>

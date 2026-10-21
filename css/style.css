@@ -1584,6 +1584,159 @@ a.video:hover .video__play {
   font-weight: 600;
 }
 
+/* ---------- Shuls with Focused doors ---------- */
+
+.doors {
+  padding-block: 48px 112px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.doors h1 {
+  font-size: clamp(36px, 4.6vw, 56px);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* The counts, search and list stay hidden until the list has loaded */
+.doors [hidden] {
+  display: none;
+}
+
+/* Three across, even on a phone */
+.doors-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.doors-stat {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+}
+
+.doors-stat strong {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.doors-stat span {
+  font-size: 14px;
+  color: var(--text-3);
+}
+
+@media (max-width: 600px) {
+  .doors-stats {
+    gap: 8px;
+  }
+
+  .doors-stat {
+    padding: 14px;
+  }
+
+  .doors-stat strong {
+    font-size: 26px;
+  }
+}
+
+.doors-search input {
+  width: 100%;
+  max-width: 480px;
+  min-height: 48px;
+  padding: 0 16px;
+  border-radius: 12px;
+  background: var(--sunken);
+  border: 1px solid var(--divider);
+  color: var(--text);
+  font: inherit;
+}
+
+.doors-search input::placeholder {
+  color: #6E6E6E;
+}
+
+#doors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.doors-city {
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.doors-group {
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+}
+
+.doors-shul {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--line-2);
+}
+
+.doors-shul:last-child {
+  border-bottom: none;
+}
+
+.doors-shul strong {
+  font-size: 18px;
+}
+
+.doors-shul__address {
+  font-size: 15px;
+  color: var(--text-2);
+}
+
+.doors-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.doors-chip {
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: var(--plum);
+  color: var(--plum-text);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.doors-message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 28px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+  color: var(--text-2);
+}
+
+.doors-note {
+  font-size: 14px;
+  color: var(--text-3);
+}
+
 /* ---------- 404 ---------- */
 
 .not-found {
