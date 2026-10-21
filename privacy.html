@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Focused — Privacy Policy</title>
+  <meta name="description" content="What the Focused app does with your information. No accounts, no advertising, and no analytics or tracking of any kind.">
+  <meta name="theme-color" content="#121212">
+  <link rel="canonical" href="https://focusedplace.com/privacy.html">
+
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/icon-512.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.className += ' js';</script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <nav class="nav" aria-label="Main">
+        <a class="brand" href="./" aria-label="Focused home">
+          <img src="img/logo-mark.svg" alt="" width="40" height="40">
+          <span class="wordmark">FOCUSED</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="./">Home</a>
+          <a href="shuls.html">For shuls</a>
+          <a href="privacy.html" aria-current="page">Privacy</a>
+          <a href="./#help">Help</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Same text as the policy at https://joshg1628.github.io/focused-privacy/ (last updated
+       11 October 2026). If one changes, change the other to match. -->
+  <main id="main">
+    <article class="wrap legal">
+      <h1>Focused — Privacy Policy</h1>
+      <p class="date">Last updated: 11 October 2026</p>
+
+      <p>Focused automatically switches your phone to vibrate when you walk through a
+      door fitted with Focused door devices, or when you arrive at a place or reach a
+      time you have saved, and restores your ringer when you leave. This policy explains
+      exactly what the app does with your information.</p>
+
+      <p><strong>Focused has no user accounts, no advertising, and no analytics or
+      tracking of any kind.</strong> There is no server that belongs to us, and we do
+      not receive, store, or have access to any of your data.</p>
+
+      <h2>Information the app uses</h2>
+
+      <div class="legal__table">
+        <table>
+          <tr><th>Information</th><th>Why</th></tr>
+          <tr>
+            <td>Approximate and precise location</td>
+            <td>To detect when you arrive at and leave a place you have saved, and to set
+                a backup "you have left" point when you walk through a Focused door. This
+                includes use in the background while the app is closed.</td>
+          </tr>
+          <tr>
+            <td>Nearby Bluetooth devices</td>
+            <td>To hear Focused door devices. The app only reacts to devices carrying
+                Focused's own identifier and ignores every other Bluetooth device.
+                Android treats Bluetooth scanning as a form of location.</td>
+          </tr>
+          <tr>
+            <td>Addresses you type into search</td>
+            <td>To look up a place when you create a rule.</td>
+          </tr>
+        </table>
+      </div>
+
+      <h2>Location in the background</h2>
+
+      <p>Focused uses location data to enable automatic vibrate at Focused doors and
+      automatic vibrate at your saved places, even when the app is closed or not in
+      use. The app shows you this explanation and asks you to agree before it requests
+      any location permission. If you decline, door detection and saved places stay off
+      and timed rules still work.</p>
+
+      <p>Your location is used on your phone only. It is <strong>not</strong> sent to
+      us or to anyone else while the app watches for arrivals and departures. That work
+      is done on the device by Android itself.</p>
+
+      <h2>Focused door devices</h2>
+
+      <p>The devices mounted at a door only broadcast a short identifier a few times a
+      second. They do not connect to your phone, receive anything from it, or record
+      who walks past. The organisation that installed them learns nothing about you
+      from them.</p>
+
+      <h2>Where information is sent</h2>
+
+      <p>Almost all of the app works entirely on your device. Information leaves your
+      phone only in these two cases, both when you are adding a place to a rule:</p>
+
+      <div class="legal__table">
+        <table>
+          <tr><th>Sent to</th><th>What is sent</th><th>Why</th></tr>
+          <tr>
+            <td>Google Maps Platform</td>
+            <td>Text you type into address search, and your location while a map is
+                displayed</td>
+            <td>To suggest addresses and to draw the map.</td>
+          </tr>
+          <tr>
+            <td>Google (Android system)</td>
+            <td>Coordinates of a point you tap on the map</td>
+            <td>To convert that point into a street address, using Android's built-in
+                service.</td>
+          </tr>
+        </table>
+      </div>
+
+      <h2>Information kept on your device only</h2>
+
+      <ul>
+        <li>The rules you create, including their names, addresses and coordinates</li>
+        <li>Whether you are currently inside a Focused place or a saved place, and when
+            a door device was last heard</li>
+        <li>Your settings, such as the rule radius, and whether you agreed to the
+            location explanation</li>
+        <li>A local diagnostic log (<code>focused.log</code>) recording app errors</li>
+      </ul>
+
+      <p>None of this is transmitted to us or to anyone else. If Android Backup is
+      switched on for your device, Android may include these files in your own Google
+      account backup; that backup is controlled by you and by Google, not by us.</p>
+
+      <h2>Permissions and why they are needed</h2>
+
+      <div class="legal__table">
+        <table>
+          <tr><th>Permission</th><th>Why</th></tr>
+          <tr><td>Location, including in the background</td>
+              <td>The core function: detecting door devices, and arrival at and departure
+                  from saved places, while your phone is in your pocket.</td></tr>
+          <tr><td>Nearby devices (Bluetooth)</td>
+              <td>To hear Focused door devices.</td></tr>
+          <tr><td>Notifications</td>
+              <td>To show a notice while Focused is holding your ringer, so you always
+                  know the app is active and can undo it with one tap.</td></tr>
+          <tr><td>Do Not Disturb access</td>
+              <td>Only required for rules set to full silent. Vibrate works without it.</td></tr>
+          <tr><td>Alarms and reminders</td>
+              <td>Only required for rules that switch at a set time, and to keep the
+                  app's backup checks on time.</td></tr>
+          <tr><td>Ignore battery optimisation</td>
+              <td>Android otherwise stops the app after a few days, and it would
+                  silently stop working.</td></tr>
+        </table>
+      </div>
+
+      <h2>Retention and deletion</h2>
+
+      <p>All app data is stored on your device. Uninstalling Focused removes it.
+      You can also clear it at any time from Android Settings, under Apps &rarr;
+      Focused &rarr; Storage. Because we hold no data about you, there is nothing
+      for us to delete on your behalf.</p>
+
+      <h2>Children</h2>
+
+      <p>Focused is not directed at children and does not collect
+      information from anyone.</p>
+
+      <h2>Changes</h2>
+
+      <p>If this policy changes, the updated version will be posted at this address with
+      a new date at the top.</p>
+
+      <h2>Contact</h2>
+
+      <p>Questions about this policy: <a href="mailto:support@focusedplace.com">support@focusedplace.com</a></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span class="wordmark wordmark--small">FOCUSED</span>
+      <div class="footer-links">
+        <a href="./">Home</a>
+        <a href="shuls.html">For shuls</a>
+        <span>support@focusedplace.com</span>
+      </div>
+      <span>© <span data-year>2026</span> Focused · Patent pending</span>
+    </div>
+  </footer>
+</body>
+</html>
