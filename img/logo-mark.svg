@@ -1,21 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="26 26 56 56" width="56" height="56">
-  <!-- Focused mark: the app icon's phone and vibration arcs on the Accent to Magenta disc. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 18 72 72" width="72" height="72">
+  <!-- Focused mark: the app icon, a shul doorway (framed nested arches) with vibration
+       waves, on near-black with a violet glow, cropped to a rounded square. Matches
+       Resources/AppIcon in the app. -->
   <defs>
-    <linearGradient id="disc" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#8126F7"/>
-      <stop offset="1" stop-color="#D600AA"/>
+    <clipPath id="corner">
+      <rect x="18" y="18" width="72" height="72" rx="16" ry="16"/>
+    </clipPath>
+    <linearGradient id="dark" gradientUnits="userSpaceOnUse" x1="0" y1="18" x2="0" y2="90">
+      <stop offset="0" stop-color="#1F1530"/>
+      <stop offset="1" stop-color="#121212"/>
     </linearGradient>
-    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#D600AA"/>
-      <stop offset="1" stop-color="#BB86FC"/>
+    <radialGradient id="glow" gradientUnits="userSpaceOnUse" cx="54" cy="50.4" r="43.2">
+      <stop offset="0" stop-color="#8126F7" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#8126F7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="stroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#A45CFF"/>
+      <stop offset="1" stop-color="#E23CC4"/>
     </linearGradient>
   </defs>
-  <circle cx="54" cy="54" r="28" fill="url(#disc)"/>
-  <rect x="44.5" y="34.5" width="19" height="39" rx="4.5" fill="#121212" fill-opacity="0.35" stroke="#FFFFFF" stroke-width="3.2"/>
-  <rect x="48" y="39.5" width="12" height="25" rx="1.6" fill="url(#screen)"/>
-  <circle cx="54" cy="69.6" r="1.5" fill="#FFFFFF"/>
-  <path d="M40.2 44.5 Q37.2 54 40.2 63.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-  <path d="M35 41 Q30.6 54 35 67" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-opacity="0.6"/>
-  <path d="M67.8 44.5 Q70.8 54 67.8 63.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-  <path d="M73 41 Q77.4 54 73 67" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-opacity="0.6"/>
+  <g clip-path="url(#corner)">
+    <rect x="0" y="0" width="108" height="108" fill="url(#dark)"/>
+    <rect x="0" y="0" width="108" height="108" fill="url(#glow)"/>
+    <rect x="37" y="37" width="34" height="34" rx="6" fill="none" stroke="url(#stroke)" stroke-width="3"/>
+    <path d="M42.1 69.5V54a11.9 11.9 0 0 1 23.8 0v15.5" fill="none" stroke="url(#stroke)" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M47.2 69.5V56.6a6.8 6.8 0 0 1 13.6 0V69.5" fill="none" stroke="#F5F5F5" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M32.3 48.9Q29.8 54 32.3 59.1M75.7 48.9Q78.2 54 75.7 59.1" fill="none" stroke="#BB86FC" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M28.1 45.9Q24.7 54 28.1 62.1M79.9 45.9Q83.3 54 79.9 62.1" fill="none" stroke="#BB86FC" stroke-width="2.4" stroke-linecap="round" stroke-opacity="0.55"/>
+  </g>
 </svg>

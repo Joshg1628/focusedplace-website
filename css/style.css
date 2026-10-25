@@ -1411,6 +1411,24 @@ a.video:hover .video__play {
   line-height: 1.15;
 }
 
+/* The big app icon under the request text, filling the space beside the form on wide
+   screens. Hidden on narrow screens, where the form comes straight after the text. */
+.ask__icon {
+  display: block;
+  align-self: center;
+  width: min(300px, 70%);
+  height: auto;
+  margin-top: 40px;
+  border-radius: 22%;
+  box-shadow: 0 0 0 1px var(--plum-line), 0 28px 90px rgba(129, 38, 247, 0.35);
+}
+
+@media (max-width: 760px) {
+  .ask__icon {
+    display: none;
+  }
+}
+
 .form {
   flex: 1 1 520px;
   min-width: 0;
