@@ -483,14 +483,12 @@ body.page-shuls::before {
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 120px rgba(129, 38, 247, 0.18);
 }
 
+/* A real screenshot of the app */
 .phone__screen {
+  display: block;
+  width: 100%;
+  height: auto;
   border-radius: 34px;
-  overflow: hidden;
-  padding: 22px 14px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  background: radial-gradient(circle at 30% 0%, var(--glow), var(--glow-none) 55%), var(--bg);
 }
 
 .app-bar {
