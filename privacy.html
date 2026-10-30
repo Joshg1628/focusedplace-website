@@ -43,20 +43,21 @@
   </header>
 
   <!-- Same text as the policy at https://joshg1628.github.io/focused-privacy/ (last updated
-       11 October 2026). If one changes, change the other to match. -->
+       30 October 2026). If one changes, change the other to match. -->
   <main id="main">
     <article class="wrap legal">
       <h1>Focused — Privacy Policy</h1>
-      <p class="date">Last updated: 11 October 2026</p>
+      <p class="date">Last updated: 30 October 2026</p>
 
       <p>Focused automatically switches your phone to vibrate when you walk through a
-      door fitted with Focused door devices, or when you arrive at a place or reach a
-      time you have saved, and restores your ringer when you leave. This policy explains
-      exactly what the app does with your information.</p>
+      door fitted with Focused door devices, when you arrive at a shul near you, or when
+      you arrive at a place or reach a time you have saved, and restores your ringer when
+      you leave. This policy explains exactly what the app does with your information.</p>
 
       <p><strong>Focused has no user accounts, no advertising, and no analytics or
       tracking of any kind.</strong> There is no server that belongs to us, and we do
-      not receive, store, or have access to any of your data.</p>
+      not receive, store, or have access to your location or your rules. We do not sell
+      your information or use it for advertising.</p>
 
       <h2>Information the app uses</h2>
 
@@ -65,9 +66,10 @@
           <tr><th>Information</th><th>Why</th></tr>
           <tr>
             <td>Approximate and precise location</td>
-            <td>To detect when you arrive at and leave a place you have saved, and to set
-                a backup "you have left" point when you walk through a Focused door. This
-                includes use in the background while the app is closed.</td>
+            <td>To find the shuls near you, to detect when you arrive at and leave a shul or
+                a place you have saved, and to set a backup "you have left" point when you
+                walk through a Focused door. This includes use in the background while the
+                app is closed.</td>
           </tr>
           <tr>
             <td>Nearby Bluetooth devices</td>
@@ -84,15 +86,31 @@
 
       <h2>Location in the background</h2>
 
-      <p>Focused uses location data to enable automatic vibrate at Focused doors and
-      automatic vibrate at your saved places, even when the app is closed or not in
-      use. The app shows you this explanation and asks you to agree before it requests
-      any location permission. If you decline, door detection and saved places stay off
+      <p>Focused uses location data to enable automatic vibrate at Focused doors,
+      automatic vibrate at nearby shuls, and automatic vibrate at your saved places, even
+      when the app is closed or not in use. The app shows you this explanation and asks
+      you to agree before it requests any location permission. If you decline, no
+      location is used or sent, door detection, nearby shuls and saved places stay off,
       and timed rules still work.</p>
 
-      <p>Your location is used on your phone only. It is <strong>not</strong> sent to
-      us or to anyone else while the app watches for arrivals and departures. That work
-      is done on the device by Android itself.</p>
+      <p>Watching for arrivals and departures is done on your phone by Android itself.
+      Your location is never sent to us. It leaves your phone in two cases only, both
+      described below: to find the shuls near you, and to show a map or look up an
+      address when you add a place.</p>
+
+      <h2>Nearby shuls</h2>
+
+      <p>To find shuls near you, Focused sends your phone's location (latitude and
+      longitude), the current time and day of the week, and the search distance to
+      <a href="https://www.godaven.com">GoDaven</a>, an independent online directory of
+      shuls and minyanim. GoDaven sends back a list of nearby shuls, which is saved on
+      your phone.</p>
+
+      <p>This happens when you open the app, and when you travel outside the area of the
+      last search, which can be while the app is closed. No name, account, email address
+      or other identifier of yours is sent. As with any internet request, GoDaven can
+      see your phone's IP address. GoDaven's handling of the requests it receives is
+      covered by its own privacy policy, not this one.</p>
 
       <h2>Focused door devices</h2>
 
@@ -103,17 +121,23 @@
 
       <h2>Where information is sent</h2>
 
-      <p>Almost all of the app works entirely on your device. Information leaves your
-      phone only in these two cases, both when you are adding a place to a rule:</p>
-
       <div class="legal__table">
         <table>
           <tr><th>Sent to</th><th>What is sent</th><th>Why</th></tr>
           <tr>
+            <td>GoDaven</td>
+            <td>Your location, the current time and day, and the search distance</td>
+            <td>To find the shuls near you (see "Nearby shuls" above).</td>
+          </tr>
+          <tr>
             <td>Google Maps Platform</td>
             <td>Text you type into address search, and your location while a map is
-                displayed</td>
-            <td>To suggest addresses and to draw the map.</td>
+                displayed. Google's map component also receives device information (such
+                as phone model and Android version), your IP address, and crash reports
+                from the map.</td>
+            <td>To suggest addresses and to draw the map. Google's use of this
+                information is covered by the
+                <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</td>
           </tr>
           <tr>
             <td>Google (Android system)</td>
@@ -121,23 +145,39 @@
             <td>To convert that point into a street address, using Android's built-in
                 service.</td>
           </tr>
+          <tr>
+            <td>Our website (hosted by GitHub Pages)</td>
+            <td>Nothing about you. The app downloads small lists it needs, such as which
+                shuls have Focused door devices. Like any website, the host can see your
+                phone's IP address.</td>
+            <td>To keep the app's shul information up to date.</td>
+          </tr>
         </table>
       </div>
+
+      <h2>If you send us feedback</h2>
+
+      <p>The Send feedback button opens your own email app with a message to us. It
+      fills in the Focused version and your phone's make, model and Android version, so
+      we can follow bug reports. Nothing is sent unless you send the email yourself. We
+      receive your email address and whatever you write, and use them only to reply and
+      to fix problems.</p>
 
       <h2>Information kept on your device only</h2>
 
       <ul>
         <li>The rules you create, including their names, addresses and coordinates</li>
-        <li>Whether you are currently inside a Focused place or a saved place, and when
-            a door device was last heard</li>
+        <li>The list of shuls near you, and any shuls you have switched off</li>
+        <li>Whether you are currently inside a Focused place, a shul or a saved place,
+            and when a door device was last heard</li>
         <li>Your settings, such as the rule radius, and whether you agreed to the
             location explanation</li>
         <li>A local diagnostic log (<code>focused.log</code>) recording app errors</li>
       </ul>
 
-      <p>None of this is transmitted to us or to anyone else. If Android Backup is
-      switched on for your device, Android may include these files in your own Google
-      account backup; that backup is controlled by you and by Google, not by us.</p>
+      <p>None of this is transmitted to us. If Android Backup is switched on for your
+      device, Android may include these files in your own Google account backup; that
+      backup is controlled by you and by Google, not by us.</p>
 
       <h2>Permissions and why they are needed</h2>
 
@@ -145,8 +185,9 @@
         <table>
           <tr><th>Permission</th><th>Why</th></tr>
           <tr><td>Location, including in the background</td>
-              <td>The core function: detecting door devices, and arrival at and departure
-                  from saved places, while your phone is in your pocket.</td></tr>
+              <td>The core function: finding nearby shuls, detecting door devices, and
+                  arrival at and departure from shuls and saved places, while your phone
+                  is in your pocket.</td></tr>
           <tr><td>Nearby devices (Bluetooth)</td>
               <td>To hear Focused door devices.</td></tr>
           <tr><td>Notifications</td>
@@ -167,13 +208,14 @@
 
       <p>All app data is stored on your device. Uninstalling Focused removes it.
       You can also clear it at any time from Android Settings, under Apps &rarr;
-      Focused &rarr; Storage. Because we hold no data about you, there is nothing
-      for us to delete on your behalf.</p>
+      Focused &rarr; Storage. We hold no app data about you, so there is nothing for us
+      to delete on your behalf. If you have emailed us, you can ask us to delete those
+      emails at the address below.</p>
 
       <h2>Children</h2>
 
-      <p>Focused is not directed at children and does not collect
-      information from anyone.</p>
+      <p>Focused is not directed at children, and we do not knowingly collect
+      information from children.</p>
 
       <h2>Changes</h2>
 
